@@ -1,3 +1,10 @@
+const operators = {
+    '+': add,
+    '-': subtract,
+    '*': multiply,
+    '/': divide,
+}
+
 function add(a, b) {
     return a + b;
 }
@@ -16,4 +23,13 @@ function divide(a, b) {
     }
 
     return a / b;
+}
+
+function operate(str) {
+    const operation = str.split(' ');
+    const a = operation[0];
+    const op = operation[1];
+    const b = operation[2];
+    
+    return operators[op](a, b);
 }
