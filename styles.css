@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: lightslategray;
+    background-color: #573a3d;
 }
 
 #calculator, #display, .row button {
@@ -19,11 +19,11 @@ body {
     height: 600px;
     padding: 20px;
     margin: auto;
-    background-color: black;
+    background-color: #f6e0b5;
 }
 
 #display {
-    background-color: greenyellow;
+    background-color: #a39193;
     height: 100px;
     margin: 30px;
 }
@@ -46,14 +46,14 @@ body {
     padding: 20px;
     margin: 0px 30px;
     border: 0px;
-    background-color: #5f5e5e;
-    color: #ff8800;
+    background-color: #66545e;
+    color: #eea990;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s linear;
 }
 
 .row button:hover {
-    background-color: #5f5e5eaf;
+    box-shadow: 0 0 0px 5px #66545e;
 }
 
 .row .digit {
@@ -67,16 +67,15 @@ body {
 }
 
 .row .equal {
-    background-color: #ff8800;
-    color: white;
+    background-color: #aa6f73;
+    color: #ffffff;
     padding: 10px 20px;
     font-size: 30px;
 }
 
 .row .equal:hover {
-    background-color: #ff880091;
+    box-shadow: 0 0 0px 5px #aa6f73;
 }
-
 
 .row .decimal {
     padding: 10px 20px;
