@@ -11,8 +11,13 @@ inputButtons.addEventListener('click',(e) => {
     if (!(e.target.tagName === 'BUTTON')) {
         return;
     }
-
     const input = e.target.innerText;
+
+    if (input === 'del') {
+        deleteLastInput();
+        return
+    }
+
     updateDisplay(input);
 })
 
@@ -47,4 +52,8 @@ function operate(str) {
 
 function updateDisplay(input) {
     display.innerText += input;
+}
+
+function deleteLastInput() {
+    display.innerText = display.innerText.substring(0, display.innerText.length - 1);
 }
