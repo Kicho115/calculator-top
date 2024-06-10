@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 600px;
+    width: 500px;
     height: 600px;
     padding: 20px;
     margin: auto;
@@ -25,7 +25,7 @@ body {
 #display {
     background-color: #a39193;
     height: 100px;
-    margin: 30px;
+    margin: 25px;
 }
 
 #input {
@@ -44,7 +44,7 @@ body {
 .row button {
     flex: 1;
     padding: 20px;
-    margin: 0px 30px;
+    margin: 0px 25px;
     border: 0px;
     background-color: #66545e;
     color: #eea990;
