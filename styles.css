@@ -2,3 +2,83 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: lightslategray;
+}
+
+#calculator, #display, .row button {
+    border-radius: 8px;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    height: 600px;
+    padding: 20px;
+    margin: auto;
+    background-color: black;
+}
+
+#display {
+    background-color: greenyellow;
+    height: 100px;
+    margin: 30px;
+}
+
+#input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    padding: 20px 0px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.row button {
+    flex: 1;
+    padding: 20px;
+    margin: 0px 30px;
+    border: 0px;
+    background-color: #5f5e5e;
+    color: #ff8800;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.row button:hover {
+    background-color: #5f5e5eaf;
+}
+
+.row .digit {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.function {
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.row .equal {
+    background-color: #ff8800;
+    color: white;
+    padding: 10px 20px;
+    font-size: 30px;
+}
+
+.row .equal:hover {
+    background-color: #ff880091;
+}
+
+
+.row .decimal {
+    padding: 10px 20px;
+    font-size: 30px;
+}
