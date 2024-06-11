@@ -4,6 +4,8 @@ const operators = {
     '*': multiply,
     '/': divide,
 }
+
+let a, b;
 const display = document.getElementById('display');
 const inputButtons = document.getElementById('input');
 
@@ -13,12 +15,11 @@ inputButtons.addEventListener('click',(e) => {
     }
     const input = e.target.innerText;
 
-    if (input === 'del') {
-        deleteLastInput();
-        return
-    }
-
     updateDisplay(input);
+
+    !a ? a = input : b = input;
+    console.log(a, b);
+    
 })
 
 function add(a, b) {
@@ -51,9 +52,10 @@ function operate(str) {
 }
 
 function updateDisplay(input) {
-    display.innerText += input;
+    if (input === 'del') {
+        display.innerText = display.innerText.substring(0, display.innerText.length - 1);
+    } else {
+        display.innerText += input;
+    }
 }
 
-function deleteLastInput() {
-    display.innerText = display.innerText.substring(0, display.innerText.length - 1);
-}
