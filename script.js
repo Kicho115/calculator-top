@@ -26,7 +26,8 @@ inputButtons.addEventListener('click',(e) => {
             inputFunction.push(input);
         }
         inputFunction = transformArray(inputFunction);
-        console.log(inputFunction);
+        updateIsInputComplete(inputFunction);
+        console.log(isInputComplete);
     } else if (input !== 'AC') {
         inputFunction.push(input);
 
@@ -80,6 +81,16 @@ function transformArray(arr) {
     const op = arr[opIndex];
 
     return [a, op, b];
+}
+
+function updateIsInputComplete(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === '') {
+            isInputComplete = false;
+            return;
+        }
+    }
+    isInputComplete = true;
 }
 
 function reset() {
