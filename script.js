@@ -18,20 +18,33 @@ inputButtons.addEventListener('click',(e) => {
     }
     const input = e.target.innerText;
 
-    updateDisplay(input);
-
-    if (isNaN(parseInt(input)) && input !== '.' && input != 'AC') {
-        if (!isOpSelected) {
-            isOpSelected = true;
-            inputFunction.push(input);
-        }
+    if (input === '=' && isOpSelected) {
         inputFunction = transformArray(inputFunction);
-        updateIsInputComplete(inputFunction);
-        if (isInputComplete) {
-            console.log(operate(inputFunction));
+        const result = operate(inputFunction);
+        display.innerText = result;
+        inputFunction = [result]; // Carry
+        isOpSelected = false;
+    } else if (input === 'AC') {
+        reset();
+    } else if (input === 'del') {
+        display.innerText = display.innerText.slice(0, -1);
+        inputFunction.pop();
+    } else {
+        if (isNaN(parseInt(input)) && input !== '.') {
+            if (!isOpSelected) {
+                isOpSelected = true;
+                inputFunction.push(input);
+                updateDisplay(input);
+            } else {
+                inputFunction.pop();
+                updateDisplay('del');
+                inputFunction.push(input);
+                updateDisplay(input);
+            }
+        } else {
+            inputFunction.push(input);
+            updateDisplay(input);
         }
-    } else if (input !== 'AC' && !inputFunction.includes('.')) {
-        inputFunction.push(input);
     }
 })
 
@@ -68,16 +81,14 @@ function updateDisplay(input) {
         display.innerText = display.innerText.substring(0, display.innerText.length - 1);
     } else if (input === 'AC') {
         reset();
-    } else if (input === '.' && display.innerText.includes('.')){
-        return;
-    } else {
+    } else if (!(input === '.' && display.innerText.includes('.'))){
         display.innerText += input;
-    }
+    } 
 }
 
 function transformArray(arr) {
     const opIndex = arr.findIndex(item => isNaN(parseInt(item)) && item !== '.');
-    const a = arr.slice('0', opIndex).join('');
+    const a = arr.slice(0, opIndex).join('');
     const b = arr.slice(opIndex + 1).join('');
     const op = arr[opIndex];
 
