@@ -5,7 +5,10 @@ const operators = {
     '/': divide,
 }
 
-let a, b;
+let inputFunction = [];
+let isInputComplete = false;
+let isOpSelected = false;
+
 const display = document.getElementById('display');
 const inputButtons = document.getElementById('input');
 
@@ -17,8 +20,17 @@ inputButtons.addEventListener('click',(e) => {
 
     updateDisplay(input);
 
-    !a ? a = input : b = input;
-    console.log(a, b);
+    if (isNaN(parseInt(input)) && input !== '.' && input != 'AC') {
+        if (!isOpSelected) {
+            isOpSelected = true;
+            inputFunction.push(input);
+        }
+        inputFunction = transformArray(inputFunction);
+        console.log(inputFunction);
+    } else if (input !== 'AC') {
+        inputFunction.push(input);
+
+    }
     
 })
 
@@ -61,7 +73,17 @@ function updateDisplay(input) {
     }
 }
 
+function transformArray(arr) {
+    const opIndex = arr.findIndex(item => isNaN(parseInt(item)) && item !== '.');
+    const a = arr.slice('0', opIndex).join('');
+    const b = arr.slice(opIndex + 1).join('');
+    const op = arr[opIndex];
+
+    return [a, op, b];
+}
+
 function reset() {
-    a, b = 0;
+    inputFunction = [];
+    isOpSelected = false;
     display.innerText = '';
 }
