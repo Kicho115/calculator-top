@@ -3,6 +3,7 @@ const operators = {
     '-': subtract,
     '×': multiply,
     '÷': divide,
+    '%': modulo,
 }
 
 let inputFunction = [];
@@ -61,11 +62,16 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b == 0) {
-        return updateDisplay('MATH ERROR');
+    if (b === 0) {
+        return 'MATH ERROR';
     }
 
     return a / b;
+}
+
+function modulo(a, b) {
+    if (b === 0) return 'MATH ERROR';
+    return a % b;
 }
 
 function operate(arr) {
