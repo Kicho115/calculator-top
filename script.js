@@ -54,8 +54,14 @@ function operate(str) {
 function updateDisplay(input) {
     if (input === 'del') {
         display.innerText = display.innerText.substring(0, display.innerText.length - 1);
+    } else if (input === 'AC') {
+        reset();
     } else {
         display.innerText += input;
     }
 }
 
+function reset() {
+    a, b = 0;
+    display.innerText = '';
+}
