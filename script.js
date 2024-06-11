@@ -30,9 +30,8 @@ inputButtons.addEventListener('click',(e) => {
         if (isInputComplete) {
             console.log(operate(inputFunction));
         }
-    } else if (input !== 'AC') {
+    } else if (input !== 'AC' && !inputFunction.includes('.')) {
         inputFunction.push(input);
-
     }
 })
 
@@ -69,6 +68,8 @@ function updateDisplay(input) {
         display.innerText = display.innerText.substring(0, display.innerText.length - 1);
     } else if (input === 'AC') {
         reset();
+    } else if (input === '.' && display.innerText.includes('.')){
+        return;
     } else {
         display.innerText += input;
     }
