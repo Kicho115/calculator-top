@@ -1,8 +1,8 @@
 const operators = {
     '+': add,
     '-': subtract,
-    '*': multiply,
-    '/': divide,
+    '×': multiply,
+    '÷': divide,
 }
 
 let inputFunction = [];
@@ -27,12 +27,13 @@ inputButtons.addEventListener('click',(e) => {
         }
         inputFunction = transformArray(inputFunction);
         updateIsInputComplete(inputFunction);
-        console.log(isInputComplete);
+        if (isInputComplete) {
+            console.log(operate(inputFunction));
+        }
     } else if (input !== 'AC') {
         inputFunction.push(input);
 
     }
-    
 })
 
 function add(a, b) {
@@ -55,11 +56,10 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(str) {
-    const operation = str.split(' ');
-    const a = operation[0];
-    const op = operation[1];
-    const b = operation[2];
+function operate(arr) {
+    const a = parseFloat(arr[0]);
+    const op = arr[1];
+    const b = parseFloat(arr[2]);
 
     return operators[op](a, b);
 }
