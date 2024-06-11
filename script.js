@@ -49,7 +49,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b == 0) {
-        return;
+        return updateDisplay('MATH ERROR');
     }
 
     return a / b;
