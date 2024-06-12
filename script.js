@@ -9,6 +9,10 @@ const operators = {
 let inputFunction = [];
 let isInputComplete = false;
 let isOpSelected = false;
+const clickSound = new Audio('assets/click-sound.wav');
+const enterSound = new Audio('assets/enter-sound.wav');
+const acSound = new Audio('assets/ac-sound.wav');
+enterSound.volume = 0.3;
 
 const display = document.getElementById('display');
 const inputButtons = document.getElementById('input');
@@ -17,7 +21,16 @@ inputButtons.addEventListener('click',(e) => {
     if (!(e.target.tagName === 'BUTTON')) {
         return;
     }
+
     const input = e.target.innerText;
+
+    if (input === '=') {
+        enterSound.play();
+    } else if (input === 'AC') {
+        acSound.play()
+    } else {
+        clickSound.play();
+    }
 
     if (input === '=' && isOpSelected) {
         inputFunction = transformArray(inputFunction);
