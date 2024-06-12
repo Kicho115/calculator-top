@@ -23,7 +23,8 @@ body {
     width: 500px;
     height: 600px;
     padding: 20px;
-    margin: auto;
+    margin: 50px auto;
+    box-shadow: -5px 5px 0px 5px #aa6f73;
     background-color: #f6e0b5;
 }
 
