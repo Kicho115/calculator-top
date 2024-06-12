@@ -21,9 +21,15 @@ inputButtons.addEventListener('click',(e) => {
 
     if (input === '=' && isOpSelected) {
         inputFunction = transformArray(inputFunction);
-        const result = operate(inputFunction);
-        display.innerText = result;
+        let result = operate(inputFunction);
         inputFunction = [result]; // Carry
+        result = result.toString();
+        if (result.length >= 14) {
+            display.innerText = (result).substring(0,13) + '...';
+            }
+        else {
+            display.innerText = result;
+        }
         isOpSelected = false;
     } else if (input === 'AC') {
         reset();
