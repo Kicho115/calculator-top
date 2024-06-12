@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: Calculator;
+    src: url(assets/Calculator.ttf);
+}
+
 body {
     background-color: #573a3d;
 }
@@ -31,7 +36,8 @@ body {
     margin: 25px;
     padding: 5px 15px;
     text-align: right;
-    font-size: 50PX;
+    font-size: 70PX;
+    font-family: Calculator;
 }
 
 #input {
