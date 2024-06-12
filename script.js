@@ -60,7 +60,7 @@ inputButtons.addEventListener('click',(e) => {
                 isOpSelected = true;
                 inputFunction.push(input);
                 updateDisplay(input);
-            } else {
+            } else if (!display.innerText.slice(-1).test('/[0-9]/')){
                 inputFunction.pop();
                 updateDisplay('del');
                 inputFunction.push(input);
