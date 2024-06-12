@@ -88,7 +88,12 @@ function updateDisplay(input) {
     } else if (input === 'AC') {
         reset();
     } else if (!(input === '.' && display.innerText.includes('.'))){
-        display.innerText += input;
+        // Prevent the string on the display from overflowing
+        if (display.innerText.length >= 14) {
+            display.innerText = '...' + (display.innerText + input).substring(display.innerText.length - 12);
+        } else {
+            display.innerText += input;
+        }
     } 
 }
 
