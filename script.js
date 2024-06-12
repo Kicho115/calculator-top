@@ -32,8 +32,9 @@ inputButtons.addEventListener('click',(e) => {
         clickSound.play();
     }
 
-    if (input === '=' && isOpSelected) {
-        inputFunction = transformArray(inputFunction);
+    if (input === '=') {
+        if (isOpSelected) {
+            inputFunction = transformArray(inputFunction);
         let result = operate(inputFunction);
         inputFunction = [result]; // Carry
         result = result.toString();
@@ -44,6 +45,10 @@ inputButtons.addEventListener('click',(e) => {
             display.innerText = result;
         }
         isOpSelected = false;
+        } else {
+            // Prevents pressing equal when there is no operator
+            return;
+        }
     } else if (input === 'AC') {
         reset();
     } else if (input === 'del') {
