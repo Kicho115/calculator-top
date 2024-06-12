@@ -12,6 +12,14 @@ body {
     background-color: #573a3d;
 }
 
+h1 {
+    padding: 50px 0px;
+    text-align: center;
+    font-family: Calculator;
+    font-size: 70px;
+    color: #ffffff;
+}
+
 #calculator, #display, .row button {
     border-radius: 8px;
 }
